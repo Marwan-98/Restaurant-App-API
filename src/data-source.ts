@@ -1,8 +1,9 @@
 import { config } from "dotenv";
 import { DataSource } from "typeorm";
-import Menu from "./entities/Menu";
+import Category from "./entities/Category";
 import Order from "./entities/Order";
-import User from "./entities/User";
+import OrderLine from "./entities/OrderLine";
+import Product from "./entities/Product";
 
 config({ path: "./src/.env" });
 
@@ -13,7 +14,7 @@ const AppDataSource = new DataSource({
   username: process.env.PGUSER,
   password: process.env.PGPASS,
   synchronize: true,
-  entities: [Menu, Order, User],
+  entities: [Product, Category, Order, OrderLine],
   database: "postgres",
 });
 

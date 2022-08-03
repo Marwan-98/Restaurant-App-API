@@ -4,9 +4,9 @@ import morgan from "morgan";
 import { config } from "dotenv";
 import cors from "cors";
 import AppDataSource from "./data-source";
-import menuRouter from "./routes/MenuRouter";
+import menuRouter from "./routes/ProductRouter";
+import categoryRouter from "./routes/CategoryRouter";
 import orderRouter from "./routes/OrderRouter";
-import userRouter from "./routes/UserRouter";
 
 const app = express();
 
@@ -17,9 +17,9 @@ app.use(helmet());
 app.use(json());
 app.use(urlencoded({ extended: false }));
 
-app.use("/menu", menuRouter);
+app.use("/product", menuRouter);
+app.use("/category", categoryRouter);
 app.use("/orders", orderRouter);
-app.use("/users", userRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`listening on port: ${process.env.PORT}`);

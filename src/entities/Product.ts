@@ -3,52 +3,38 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
   ManyToOne,
   OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import Category from "./Category";
+import Order from "./Order";
 import OrderLine from "./OrderLine";
-import Product from "./Product";
+
 @Entity()
-class Order extends BaseEntity {
+class Product extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column({
     nullable: false,
   })
-  firstName: string;
+  itemName: string;
 
   @Column({
     nullable: false,
   })
-  lastName: string;
+  description: string;
 
   @Column({
     nullable: false,
   })
-  mobileNum: number;
+  price: number;
 
-  @Column({
-    nullable: false,
-  })
-  city: string;
-
-  @Column({
-    nullable: false,
-  })
-  address: string;
-
-  @Column({})
-  orderNumber: number;
-
-  @Column({
-    default: false
-  })
-  completed: boolean
+  @Column()
+  popular: boolean;
 
   @CreateDateColumn({
     type: "timestamptz",
@@ -61,8 +47,11 @@ class Order extends BaseEntity {
   })
   updatedAt: Date;
 
-  @OneToMany(() => OrderLine, (orderLine) => orderLine.order)
-  orderLine: OrderLine[];
+  @ManyToOne(() => Category, (category) => category.products)
+  category: Category;
+
+  @OneToMany(() => OrderLine, (orderLine) => orderLine.product)
+  order: OrderLine[];
 }
 
-export default Order;
+export default Product;
