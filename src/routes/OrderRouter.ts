@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
 
 router.post("/add", async (req, res) => {
   const {
-    client: { firstName, lastName, mobileNum, orderNumber, city, address },
+    client: { firstName, lastName, mobileNum, city, address },
     products,
   } = req.body;
 
@@ -22,7 +22,6 @@ router.post("/add", async (req, res) => {
     firstName,
     lastName,
     mobileNum,
-    orderNumber,
     city,
     address,
   });
@@ -45,7 +44,7 @@ router.post("/add", async (req, res) => {
     }
   }
 
-  res.json(req.body);
+  res.json(order);
 });
 
 router.post('/:id/completed', async (req, res) => {

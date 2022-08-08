@@ -20,6 +20,12 @@ class Product extends BaseEntity {
 
   @Column({
     nullable: false,
+    default: "https://w7.pngwing.com/pngs/290/929/png-transparent-burger-hamburger-button-cheeseburger-junk-food-fast-food-junk-food-food-fast-food-restaurant-cheeseburger.png"
+  })
+  url: string;
+
+  @Column({
+    nullable: false,
   })
   itemName: string;
 

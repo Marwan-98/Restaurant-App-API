@@ -42,9 +42,6 @@ class Order extends BaseEntity {
   })
   address: string;
 
-  @Column({})
-  orderNumber: number;
-
   @Column({
     default: false
   })
