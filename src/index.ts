@@ -10,7 +10,7 @@ import orderRouter from "./routes/OrderRouter";
 
 const app = express();
 
-config({ path: "./src/.env" });
+config();
 app.use(cors());
 app.use(morgan("dev"));
 app.use(helmet());
