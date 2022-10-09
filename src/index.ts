@@ -1,8 +1,8 @@
 import express, { json, urlencoded } from "express";
+import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import { config } from "dotenv";
-import cors from "cors";
 import AppDataSource from "./data-source";
 import menuRouter from "./routes/ProductRouter";
 import categoryRouter from "./routes/CategoryRouter";

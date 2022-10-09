@@ -5,7 +5,7 @@ import Order from "./entities/Order";
 import OrderLine from "./entities/OrderLine";
 import Product from "./entities/Product";
 
-config({ path: "./src/.env" });
+config();
 
 const AppDataSource = new DataSource({
   type: "postgres",
