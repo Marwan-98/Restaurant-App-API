@@ -21,6 +21,10 @@ app.use("/product", menuRouter);
 app.use("/category", categoryRouter);
 app.use("/orders", orderRouter);
 
+app.get("/", (_, res) => {
+  return res.sendStatus(200);
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`listening on port: ${process.env.PORT}`);
   AppDataSource.initialize();
